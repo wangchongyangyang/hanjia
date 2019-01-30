@@ -19,7 +19,7 @@
 					
 					$.get("http://47.104.244.134:8080/username.do",{username:val},function(data){
 						if(data.code==0){
-							console.log("用户名已被占用");
+							alert("用户名已被占用");
 						}
 					})
 					
@@ -30,7 +30,7 @@
 					
 					$.get("http://47.104.244.134:8080/useremail.do",{email:val},function(data){
 						if(data.code==0){
-							console.log("邮箱已被占用");
+							alert("邮箱已被占用");
 						}
 					})
 					
@@ -42,8 +42,6 @@
 						password:$("input").eq(1).val(),
 						email:$("input").eq(2).val(),
 						sex:$("input").eq(3).val()
-					},function(data){
-						
 					})
 				})
 			})
