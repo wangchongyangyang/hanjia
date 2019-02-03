@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		用户名<input type="text">
+		密码<input type="password">
+		<input type="button" value="登录" id="btn">
+		<script type="text/javascript">
+			$(function(){
+				$("#btn").click(function(){
+					$.post("http://47.104.244.134:8080/userlogin.do",{
+						name:$("input").eq(0).val(),
+						password:$("input").eq(1).val()
+					},function(data){
+						if(data.code==0){
+							$.cookie("token",data.data.token);
+							location.href = "index.html";
+						}
+					})
+				})
+			})
+		</script>
+	</body>
+</html>
